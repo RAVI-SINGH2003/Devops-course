@@ -1,0 +1,171 @@
+Let's talk about vim:-
+
+
+
+Vim (Vi Improved) is a highly configurable text editor, built as an improvement of the original Vi editor. It’s powerful for editing code, configuration files, or even plain text, the same keys can perform different actions depending on the mode.
+
+
+
+# Vim Modes and Commands Cheatsheet
+
+
+
+## Vim Modes
+
+
+
+1. Normal Mode
+
+  - Default mode when Vim starts.
+
+  - Used for navigation and editing commands (dd, yy, p, etc.).
+
+  - Enter from Insert Mode by pressing Esc.
+
+
+
+2. Insert Mode
+
+  - Used for typing text.
+
+  - Enter from Normal Mode using:
+
+       i → insert before cursor
+
+       a → insert after cursor
+
+       o → open a new line below the current line
+
+
+
+3. Visual Mode
+
+  - Used for selecting text.
+
+  - Enter from Normal Mode with:
+
+       v → character-wise selection
+
+       V → line-wise selection
+
+
+
+4. Command-Line Mode (Ex Mode)
+
+  - It’s the mode where you type commands at the bottom of the screen.
+
+  - Enter from Normal Mode with:
+
+      : → Ex commands (e.g., :wq, :s/foo/bar/g)
+
+      / → search forward
+
+      ? → search backward
+
+
+
+## Common Commands
+
+
+
+### File Operations
+
+1. Exit Vim and save changes → Esc + :wq
+
+2. Exit Vim without saving changes → Esc + :q!
+
+3. Discard all changes without exiting → Esc + :e!
+
+
+
+### Navigation
+
+4. Go to top of file → gg
+
+5. Go to bottom of file → G (Shift + g)
+
+6. Go to a specific line number → :LINE_NUMBER
+
+
+
+### Searching
+
+7. Search forward → /WORD → Enter → n (next), N (previous)
+
+8. Search backward → ?WORD → Enter → n (previous), N (next)
+
+9. Search word under cursor forward → * → then n
+
+10. Search word under cursor backward → # → then n
+
+
+
+### Editing & Undo
+
+11. Replace globally → :%s/old/new/g
+
+12. Undo → u
+
+13. Redo → Ctrl + r
+
+14. Delete character under cursor → x
+
+15. Replace character under cursor → r + <new_char>
+
+
+
+### Inserting Text
+
+16. Start editing on line below → o
+
+17. Start editing on line above → O
+
+18. Start editing at line beginning → I
+
+19. Start editing at line end → A
+
+
+
+### Cut, Copy, Paste
+
+20. Cut (delete) a line → dd
+
+21. Cut multiple lines → <number>dd (e.g., 15dd)
+
+22. Copy a line → yy (yank line)
+
+23. Copy selected text → visual mode + y
+
+24. Paste below cursor → p
+
+25. Paste above cursor → P
+
+
+
+### Visual Selections
+
+26. Select character-wise → v + arrow keys
+
+27. Select line → V
+
+
+
+### Display Settings
+
+28. Show line numbers → :set nu
+
+29. Hide line numbers → :set nonu
+
+30. Enable syntax highlighting → :syntax on
+
+31. Disable syntax highlighting → :syntax off
+
+
+
+### Working with Multiple Files
+
+32. Open multiple files → vim -o file1 file2 (horizontal split)
+
+33. Switch between files/splits → Ctrl + w + w
+
+34. Compare two files (diff mode) → vim -d file1 file2
