@@ -1,0 +1,285 @@
+Linux Commands Cheat Sheet
+
+Basic User Commands
+
+1.  Name of current logged in user
+    whoami
+
+2.  List files and folders
+
+    -   ls
+    -   ls -lt
+    -   ls -lh (human readable)
+    -   ls -ltr (long listing, sort by modification time, reverse →
+        recent modified at last)
+
+3.  Visit root directory
+    cd /
+
+4.  Visit home directory
+    cd ~
+
+5.  To view top 5 lines
+    head -5 file.txt
+
+6.  To view last 5 lines
+    tail -5 file.txt
+
+7.  To sort the file content lexicographically
+    sort file
+
+8.  Sort lines numerically
+    sort -n file
+
+9.  Sort lines in reverse
+
+    -   sort -r file
+    -   sort -rn file (sort numerically in reverse order)
+
+10. Sort lines and remove duplicate lines
+    sort file | uniq (does not change original file)
+
+11. Search a word
+    grep "text" file
+
+12. Search multiple words
+    egrep "text1|text2" file
+
+13. View date
+    date
+
+14. Basic calculator
+    bc
+
+15. Create multiple files
+    touch file_{1..10}.txt → creates file_1.txt … file_10.txt
+
+16. Wildcard examples
+
+    -   ls file* → list all files starting with “file”
+    -   ls *.sh → list all .sh files
+
+17. Count number of lines
+    wc -l file
+
+18. Check if two files are identical
+    cmp file1 file2
+    (if equal → no output, otherwise shows differences)
+
+19. View differences between files
+    diff -u file1 file2
+
+20. Find a file
+    find /path -name file_name
+
+21. Locate a file (faster)
+
+    -   Update cache: updatedb
+    -   Run: locate <file>
+
+22. Search history
+    history | grep "docker"
+
+23. Locate an executable
+    which command_name → e.g. which touch
+
+24. Check how long server is running
+    uptime
+
+25. Record terminal activity
+    script     # recording started     # run commands     CTRL+D  # stop recording
+    Output saved in typescript file.
+
+26. Temporary aliases (session-based)
+    alias cls="clear"
+
+------------------------------------------------------------------------
+
+File Compression & Archiving
+
+1.  Zip a file and remove file
+    gzip file_name
+
+2.  Zip a file and keep file
+    gzip -k file_name
+
+3.  Unzip a file and remove zip
+    gunzip file_name.gz
+
+4.  Unzip a file and keep zip
+    gzip -dk file_name.gz
+
+5.  Compress a folder
+    tar -czf myfolderzip.tar.gz myfolder
+
+    -   -c create archive
+    -   -z gzip
+    -   -f filename
+
+6.  Decompress a folder
+    tar -xzf myfolderzip.tar.gz
+
+    -   -x extract
+    -   -z gzip
+    -   -f filename
+
+7.  Zip multiple files
+    zip myzip.zip file1 file2
+
+8.  Unzip multiple files
+    unzip myzip.zip
+
+9.  List files in a zip
+    unzip -l myfiles.zip
+
+------------------------------------------------------------------------
+
+Networking & Downloads
+
+1.  Download a file from internet
+    -   wget https://example.com/file.pdf
+    -   wget -O newfile.txt url
+2.  API calls using curl
+    -   Fetch a webpage: curl https://example.com
+    -   Download a file: curl -O https://example.com/file.txt
+    -   Save to specific file:
+        curl -o myfile.txt https://example.com/file.txt
+    -   Send GET with headers:
+        curl -H "Authorization: Bearer TOKEN" https://api.example.com/data
+    -   Send POST request:
+        curl -X POST -d "name=Ravi&age=30" https://api.example.com/create
+
+------------------------------------------------------------------------
+
+Environment Variables
+
+1.  List environment variables
+    printenv
+
+2.  Add temporary environment variable
+    export JAVA_HOME="/user/java"
+
+3.  Add permanent environment variable
+
+        vim ~/.bashrc
+        export JAVA_HOME="/user/java"
+        source ~/.bashrc
+
+------------------------------------------------------------------------
+
+Permissions & Ownership
+
+1.  Change file permissions
+
+    -   chmod a+rwx file → all users get full permission
+    -   chmod u-wx file → remove write/execute for user
+
+2.  Change ownership
+    chown <user> file.txt
+
+3.  Change group ownership
+    chgrp <group> file.txt
+
+------------------------------------------------------------------------
+
+System Info
+
+1.  Disk usage → du ./folder
+2.  Disk free space → df -h
+3.  Memory (RAM) → free
+4.  CPU & memory usage → top
+5.  Server name → hostname
+6.  OS info → uname -ac or cat /etc/os-release
+7.  Architecture → arch
+8.  CPU details → lscpu
+9.  Disk partitions → lsblk
+
+------------------------------------------------------------------------
+
+Process Management
+
+1.  All running processes
+    ps -ef
+
+    -   -e → all processes
+    -   -f → full format listing
+
+2.  Check if process is running
+    ps -ef | grep java
+
+3.  Get process ID (PID)
+    pgrep nginx
+
+4.  Kill process by PID
+    kill -9 <pid>
+
+5.  Kill process by name
+    pkill nginx
+
+6.  List jobs
+    jobs
+
+7.  Background job
+    bg
+
+8.  Foreground job
+    fg
+
+9.  Run script in background
+    nohup ./file.sh > /dev/null &
+
+------------------------------------------------------------------------
+
+Networking
+
+1.  IP of machine → ifconfig
+2.  Check if server reachable → ping google.com
+3.  Check network path → traceroute google.com
+4.  Restart server → reboot
+5.  Shutdown server → shutdown
+
+------------------------------------------------------------------------
+
+User Management
+
+1.  Add new user
+    sudo adduser <username> / sudo useradd <username>
+
+2.  View user & group ID
+    id <username>
+
+3.  Change user password
+    sudo passwd <username>
+
+4.  Switch user
+    su <username>
+
+5.  Create group
+    sudo groupadd <group_name> | sudo groupadd <group_name>
+
+6.  Check groups
+    cat /etc/group | grep <group_name>
+
+7.  Assign user to group
+    sudo usermod -aG <group_name> <username>
+
+8.  Remove user from group
+    sudo gpasswd -d <username> <group_name>
+
+9.  Delete user
+    sudo userdel <username> / sudo deluser <username
+
+10. Delete group
+    sudo groupdel <group_name> / sudo delgroup <group_name>
+
+------------------------------------------------------------------------
+
+Task Scheduling
+
+1.  One-time task
+
+        at 05:10 PM
+        echo "This file is created at 05:10 PM" > a.txt
+        CTRL+D
+
+    At 05:10 PM, a.txt will be created.

@@ -1,18 +1,10 @@
 Let's talk about vim:-
 
-
-
 Vim (Vi Improved) is a highly configurable text editor, built as an improvement of the original Vi editor. It’s powerful for editing code, configuration files, or even plain text, the same keys can perform different actions depending on the mode.
-
-
 
 # Vim Modes and Commands Cheatsheet
 
-
-
 ## Vim Modes
-
-
 
 1. Normal Mode
 
